@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Cognite Toolkit
+ice-cream-dataops/function_local_venvs/
+ice-cream-dataops/build_info.*.yaml
