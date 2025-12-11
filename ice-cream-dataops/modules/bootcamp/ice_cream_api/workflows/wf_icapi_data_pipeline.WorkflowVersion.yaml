@@ -12,8 +12,6 @@ workflowDefinition:
     retries: 3
     timeout: 3600
     onFailure: abortWorkflow
-    dependsOn:
-      - externalId: contextualize_ts_assets_task
 
   - externalId: contextualize_ts_assets_task
     type: transformation
@@ -26,7 +24,7 @@ workflowDefinition:
     timeout: 3600
     onFailure: abortWorkflow
     dependsOn:
-      - externalId: icapi_datapoints_extractor_task
+      - externalId: create_asset_hierarchy_task
 
   - externalId: icapi_datapoints_extractor_task
     type: function
@@ -39,7 +37,7 @@ workflowDefinition:
     timeout: 3600
     onFailure: abortWorkflow
     dependsOn:
-      - externalId: oee_timeseries_task
+      - externalId: contextualize_ts_assets_task
 
   - externalId: oee_timeseries_task
     type: function
@@ -51,3 +49,5 @@ workflowDefinition:
     retries: 3
     timeout: 3600
     onFailure: abortWorkflow
+    dependsOn:
+      - externalId: icapi_datapoints_extractor_task
